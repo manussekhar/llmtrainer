@@ -1,10 +1,10 @@
-package com.programming.techie.pdfassistant;
+package com.manu.myna.llmtrainer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PdfAssistantApplicationTests {
+class LLMTrainerApplicationTests {
 
     @Test
     void contextLoads() {

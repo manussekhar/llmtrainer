@@ -1,4 +1,4 @@
-package com.programming.techie.pdfassistant;
+package com.manu.myna.llmtrainer;
 
 import dev.langchain4j.chain.ConversationalRetrievalChain;
 import dev.langchain4j.data.document.splitter.DocumentSplitters;
@@ -21,7 +21,7 @@ import java.nio.file.Paths;
 import java.time.Duration;
 
 @Configuration
-public class PdfAssistantConfig {
+public class LLMTrainerConfig {
     @Value("${temperature}")
     private Double temperature;
     @Value("${doc_path}")
