@@ -33,4 +33,4 @@ build/
 ### VS Code ###
 .vscode/
 .DS_Store
-log.txt.2024-06-22.0.gz
+log.txt.*.gz
