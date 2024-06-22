@@ -26,7 +26,12 @@ public class PdfAssistantConfig {
     private Double temperature;
     @Value("${doc_path}")
     private String doc_path;
-    static String MODEL_NAME = "phi3:mini";
+    @Value("${llm}")
+    private String llm;
+
+    @Value("${ollama_url}")
+    private String ollama_url;
+
     @Bean
     public EmbeddingModel embeddingModel() {
         return new AllMiniLmL6V2EmbeddingModel();
@@ -56,8 +61,8 @@ public class PdfAssistantConfig {
                         .timeout(Duration.ofMinutes(10))
                         .logRequests(true)
                         .logResponses(true)
-                        .baseUrl(baseUrl())
-                        .modelName(MODEL_NAME)
+                        .baseUrl(ollama_url)
+                        .modelName(llm)
                         .build())
                 .contentRetriever(contentRetriever(embeddingStore(),embeddingModel()))
                 .build();
@@ -77,9 +82,5 @@ public class PdfAssistantConfig {
                 .maxResults(maxResults)
                 .minScore(minScore)
                 .build();
-    }
-
-    static String baseUrl() {
-        return String.format("http://%s:%d", "127.0.0.1", 11434);
     }
 }

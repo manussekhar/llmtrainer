@@ -25,15 +25,12 @@ import static dev.langchain4j.data.document.loader.FileSystemDocumentLoader.load
 public class ChatController {
     @Value("${doc_path}")
     private String doc_path;
-
     private final ConversationalRetrievalChain conversationalRetrievalChain;
     private final EmbeddingStoreIngestor embeddingStoreIngestor;
 
-
     @PostMapping
     @RequestMapping("/chat")
-    public String chat(@RequestBody String text) {
-	String question = text+". Format answer in html";
+    public String chat(@RequestBody String question) {
 	log.debug("Question is - {}", question);
         var answer = conversationalRetrievalChain.execute(question);
         log.debug("Answer is - {}", answer);
